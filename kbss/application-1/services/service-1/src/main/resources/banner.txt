@@ -1,0 +1,1 @@
+KBSS - Example Service - Ver. ${application.version}

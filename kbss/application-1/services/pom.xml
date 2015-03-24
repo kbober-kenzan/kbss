@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kbss.application</groupId>
 	<artifactId>application-parent</artifactId>
@@ -22,60 +23,44 @@
 		<commons.lang.version>2.6</commons.lang.version>
 		<common.logging.version>1.1.3</common.logging.version>
 		<commons.beanutils.version>1.7.0</commons.beanutils.version>
-        <commons.codec.version>1.9</commons.codec.version>
-        <commons.io.version>2.4</commons.io.version>
+		<commons.codec.version>1.9</commons.codec.version>
+		<commons.io.version>2.4</commons.io.version>
 		<compile.version>1.7</compile.version>
-        <cxf.version>3.0.2</cxf.version>
-		<dropwizard.version>0.7.1</dropwizard.version>
-		<equalsverifier.version>1.2</equalsverifier.version>
+
 		<google.api.version>v3-rev89-1.19.0</google.api.version>
-		<guava.version>17.0</guava.version>
+		<guava.version>18.0</guava.version>
+
 		<hibernate.version>4.3.6.Final</hibernate.version>
 		<hibernate-commons-annotations.version>4.0.5.Final</hibernate-commons-annotations.version>
 		<hibernate-validator.version>5.1.1.Final</hibernate-validator.version>
+
 		<httpclient.version>4.3.4</httpclient.version>
 		<jackson.version>2.3.2</jackson.version>
 		<javassist.version>3.18.1-GA</javassist.version>
+
 		<javax.activation.version>1.1</javax.activation.version>
 		<javax.el.version>2.2.6</javax.el.version>
 		<javax.persistence.version>2.0.0</javax.persistence.version>
 		<javaxvalidation.version>1.1.0.Final</javaxvalidation.version>
-        <jaxb.impl.version>2.2.5</jaxb.impl.version>
-        <jaxws.rt.version>2.2.6</jaxws.rt.version>
-		<jboss-logging.version>3.1.3.GA</jboss-logging.version>
+		<jaxb.impl.version>2.2.5</jaxb.impl.version>
+		<jaxws.rt.version>2.2.6</jaxws.rt.version>
 		<jersey.version>1.18.1</jersey.version>
-		<jknack.handlebars.version>1.3.1</jknack.handlebars.version>
+
 		<joda.version>2.3</joda.version>
-		<jsendnsca.version>2.0.1</jsendnsca.version>
-        <jasypt.version>1.9.2</jasypt.version>
 		<junit.version>4.11</junit.version>
-        <mimepull.version>1.8</mimepull.version>
+
 		<mockito.version>1.9.5</mockito.version>
 		<mysql.version>5.1.22</mysql.version>
-		<metrics.version>3.0.2</metrics.version>
-		<objenesis.version>2.1</objenesis.version>
-        <opencsv.version>2.3</opencsv.version>
-		<powermock.version>1.5.4</powermock.version>
-		<rabbitmq.version>3.3.0</rabbitmq.version>
-		<saaj.version>1.3</saaj.version>
-		<slf4j.version>1.7.6</slf4j.version>
-        <spymemcached.version>2.11.6</spymemcached.version>
-        <stax-ex.version>1.7</stax-ex.version>
-		<tomcatjdbc.version>7.0.50</tomcatjdbc.version>
-		<paranamer.version>2.5.2</paranamer.version>
-        <poi.version>3.11</poi.version>
-        <woodstox.version>4.1.2</woodstox.version>
-        <nimbusds.version>3.9</nimbusds.version>
 
-		<!-- Sonar -->
-		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-		<!-- The destination file for the code coverage report has to be set to 
-			the same value in the parent pom and in each module pom. Then JaCoCo will 
-			add up information in the same report, so that, it will give the cross-module 
-			code coverage. -->
-		<sonar.jacoco.itReportPath>${project.basedir}/../target/jacoco-it.exec</sonar.jacoco.itReportPath>
-		<sonar.language>java</sonar.language>
+		<slf4j.version>1.7.6</slf4j.version>
+		<spymemcached.version>2.11.6</spymemcached.version>
+		
+		<apache.shiro.version>1.2.3</apache.shiro.version>
+
+		<spring.boot.version>1.2.2.RELEASE</spring.boot.version>
+		<spring.version>4.1.5.RELEASE</spring.version>
+		<h2.version>1.4.186</h2.version>
+
 	</properties>
 
 	<prerequisites>
@@ -86,31 +71,92 @@
 		<connection>scm:git:git@github.com:kylebober/sample-application.git</connection>
 	</scm>
 
-	<!--
-	<distributionManagement>
-		<snapshotRepository>
-			<id>deployment</id>
-			<name>Snapshots</name>
-			<url>https://kbss.com/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<id>deployment</id>
-			<name>Releases</name>
-			<url>https://kbss.com/nexus/content/repositories/releases/</url>
-		</repository>
-	</distributionManagement>
-	-->
-
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<!-- <distributionManagement> <snapshotRepository> <id>deployment</id> <name>Snapshots</name> 
+		<url>https://kbss.com/nexus/content/repositories/snapshots/</url> </snapshotRepository> 
+		<repository> <id>deployment</id> <name>Releases</name> <url>https://kbss.com/nexus/content/repositories/releases/</url> 
+		</repository> </distributionManagement> -->
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- Spring Boot Dependencies - Use this when not inheriting from the 
+				Spring Boot Parent POM -->
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Spring Boot & Spring Dependencies -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-thymeleaf</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-jersey</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-hateoas</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<!-- Shiro -->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${apache.shiro.version}</version>
+			</dependency>			
+			<dependency>			
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-web</artifactId>
+				<version>${apache.shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${apache.shiro.version}</version>
+			</dependency>
+
+			<!-- H2 Database -->
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${h2.version}</version>
+			</dependency>
+			
+			<!-- Guava --> 
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-annotations</artifactId>
@@ -142,23 +188,11 @@
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>${guava.version}</version>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons.codec.version}</version>
 				<scope>compile</scope>
 			</dependency>
-			<dependency>
-				<groupId>com.thoughtworks.paranamer</groupId>
-				<artifactId>paranamer</artifactId>
-				<version>${paranamer.version}</version>
-				<scope>compile</scope>
-			</dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${commons.codec.version}</version>
-                <scope>compile</scope>
-            </dependency>
 			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
@@ -166,11 +200,11 @@
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
-                <groupId>javax.activation</groupId>
-                <artifactId>activation</artifactId>
-                <version>${javax.activation.version}</version>
-                <scope>compile</scope>
-            </dependency>
+				<groupId>javax.activation</groupId>
+				<artifactId>activation</artifactId>
+				<version>${javax.activation.version}</version>
+				<scope>compile</scope>
+			</dependency>
 			<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
@@ -189,12 +223,6 @@
 				<version>${httpclient.version}</version>
 				<scope>compile</scope>
 			</dependency>
-            <dependency>
-                <groupId>org.apache.tomcat</groupId>
-                <artifactId>tomcat-jdbc</artifactId>
-                <version>${tomcatjdbc.version}</version>
-                <scope>compile</scope>
-            </dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
@@ -220,59 +248,28 @@
 				<scope>runtime</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.jboss.logging</groupId>
-				<artifactId>jboss-logging</artifactId>
-				<version>${jboss-logging.version}</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
 				<scope>compile</scope>
 			</dependency>
-            <dependency>
-                <groupId>org.jvnet.staxex</groupId>
-                <artifactId>stax-ex</artifactId>
-                <version>${stax-ex.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.woodstox</groupId>
-                <artifactId>woodstox-core-asl</artifactId>
-                <version>${woodstox.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jvnet.mimepull</groupId>
-                <artifactId>mimepull</artifactId>
-                <version>${mimepull.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sun.xml.bind</groupId>
-                <artifactId>jaxb-impl</artifactId>
-                <version>${jaxb.impl.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${jaxb.impl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
 				<version>${commons.io.version}</version>
 				<scope>compile</scope>
-            </dependency>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>sonar-maven-plugin</artifactId>
-					<version>2.1</version>
-				</plugin>
-				<plugin>
-					<groupId>org.jacoco</groupId>
-					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.6.5.201403032054</version>
-				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -306,25 +303,6 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>pre-test</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>post-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<version>1.2</version>
@@ -390,9 +368,9 @@
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.15</version>
-                <configuration>
-                    <argLine>-Xmx2048m -XX:MaxPermSize=1024m</argLine>
-                </configuration>
+				<configuration>
+					<argLine>-Xmx2048m -XX:MaxPermSize=1024m</argLine>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -406,10 +384,10 @@
 	</build>
 
 	<modules>
-		<module>service-1</module>		
+		<module>service-1</module>
 	</modules>
 
-    <!-- Developer's section -->
+	<!-- Developer's section -->
 	<developers>
 		<developer>
 			<id>kbober</id>
