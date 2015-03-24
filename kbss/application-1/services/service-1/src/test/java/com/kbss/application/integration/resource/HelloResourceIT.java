@@ -18,6 +18,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import com.kbss.application.Application;
+import com.kbss.application.service.HelloService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
@@ -39,7 +40,7 @@ public class HelloResourceIT {
 
 	@Test
 	public void getHello() throws Exception {
-		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		assertThat(response.getBody(), equalTo("Greetings from Spring Boot!"));
+		ResponseEntity<String> response = template.getForEntity(base.toString()+"/hello", String.class);
+		assertThat(response.getBody(), equalTo(HelloService.GREETING));
 	}
 }
