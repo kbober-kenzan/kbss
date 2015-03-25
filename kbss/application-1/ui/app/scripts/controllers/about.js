@@ -2,16 +2,8 @@
 
 /**
  * @ngdoc function
- * @name angularWebappApp.controller:AboutCtrl
+ * @name uiApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the angularWebappApp
+ * Controller of the uiApp
  */
-angular.module('angularWebappApp')
-  .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
