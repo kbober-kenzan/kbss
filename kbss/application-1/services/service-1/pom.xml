@@ -34,6 +34,22 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+    			<groupId>org.flywaydb</groupId>
+    			<artifactId>flyway-maven-plugin</artifactId>
+    			<configuration>
+        			<user>${db.user}</user>
+        			<password>${db.password}</password>
+        			<url>${db.jdbc.connection}</url>
+        			<schemas>
+            			<schema>kbss</schema>
+            		</schemas>
+        			<placeholders>
+            			<keyABC>valueXYZ</keyABC>
+            			<otherplaceholder>value123</otherplaceholder>
+        			</placeholders>
+    			</configuration>    
+			</plugin>
 		</plugins>
 	</build>
 
@@ -86,6 +102,16 @@
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -107,5 +133,60 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<profiles>
+        <profile>
+            <id>recreate-schema</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+            	<plugins>
+                <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>recreate schema</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>mysql</executable>
+                            <arguments>
+                                <argument>-h${db.host}</argument>
+                                <argument>-u${db.user}</argument>
+                                <argument>-p${db.password}</argument>
+                                <argument>-e drop schema if exists kbss; create schema kbss;</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <!-- 
+                    <execution>
+                        <id>migrate db</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>-jar</argument>
+                                <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+                                <argument>routingdb</argument>
+                                <argument>migrate</argument>
+                                <argument>${project.parent.basedir}/kraken-config/kraken/kraken-service/kraken-service-integration.yml</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    -->
+                </executions>
+            </plugin>
+        </plugins>
+        </build>
+        </profile>
+    </profiles>
 
 </project>

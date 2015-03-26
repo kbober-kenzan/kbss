@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>My todos Hello world</h2>
+  <h2>My Todo(s)</h2>
   
   <!-- Todos input -->
   <form role="form" ng-submit="addTodo()">
@@ -11,13 +11,17 @@
         </span>
       </div>
     </div>
-  </form><br>
+  </form>
   
-  <p class="input-group"" ng-repeat="todo in todos">
-    <!-- <input type="text" ng-model="todo.name + todo.id" class="form-control"> -->
-    <input type="text" ng-model="todo" class="form-control">
-    <span class="input-group-btn">
-    	<button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
-  	</span>
-  </p>
+  <br>
+  
+  <div ui-sortable ng-model="todos" >
+	  <p ng-repeat="todo in todos" class="input-group" style="padding:5px 10px; cursor: move;">
+	    <!-- <input type="text" ng-model="todo.name + todo.id" class="form-control"> -->
+	    <input type="text" ng-model="todo" class="form-control">
+	    <span class="input-group-btn">
+	    	<button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+	  	</span>
+	  </p>
+  </div>
 </div>

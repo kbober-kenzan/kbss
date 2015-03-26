@@ -11,12 +11,12 @@ angular.module('uiApp').controller('MainCtrl', function ($scope) {
 	
 	// $scope.todos = [{'id':'1', 'name':'Item 1'}, {'id':'2', 'name':'Item 2'}, {'id':'2', 'name':'Item 3'}];
 
-	$scope.todos = ['Item 1','Item 2','Item 3'];
+	$scope.todos = [];
 	
 	$scope.addTodo = function () {
 		
-		if ($scope.todo == null || $scope.todo == "") {
-	        alert("Todo can not contain an empty string.");
+		if ($scope.todo === null || $scope.todo === '') {
+	        window.alert('Todo can not contain an empty string.');
 	        return false;
 	    }
 		

@@ -60,6 +60,14 @@
 		<spring.boot.version>1.2.2.RELEASE</spring.boot.version>
 		<spring.version>4.1.5.RELEASE</spring.version>
 		<h2.version>1.4.186</h2.version>
+		<flyway.version>3.2.1</flyway.version>
+		<mysql.version>5.1.22</mysql.version>
+		
+		<db.user>admin</db.user>
+		<db.password>kraken</db.password>
+		<db.host>127.0.0.1</db.host>
+		<db.port>3306</db.port>
+		<db.jdbc.connection>jdbc:mysql://${db.host}</db.jdbc.connection>
 
 	</properties>
 
@@ -142,6 +150,21 @@
 				<artifactId>shiro-spring</artifactId>
 				<version>${apache.shiro.version}</version>
 			</dependency>
+			
+			<!-- Flyway -->
+			<dependency>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-core</artifactId>
+				<version>${flyway.version}</version>
+			</dependency>
+			
+			<!-- MySQL -->
+        	<dependency>
+            	<groupId>mysql</groupId>
+            	<artifactId>mysql-connector-java</artifactId>
+            	<version>${mysql.version}</version>
+            	<scope>runtime</scope>
+        	</dependency>
 
 			<!-- H2 Database -->
 			<dependency>
@@ -382,6 +405,22 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <url>jdbc:h2:file:target/foobar</url>
+                    <user>sa</user>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>1.3.170</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 		</plugins>
 	</build>
 
