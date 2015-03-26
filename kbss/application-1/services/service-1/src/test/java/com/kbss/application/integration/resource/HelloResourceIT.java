@@ -40,7 +40,7 @@ public class HelloResourceIT {
 
 	@Test
 	public void getHello() throws Exception {
-		ResponseEntity<String> response = template.getForEntity(base.toString()+"/hello", String.class);
+		ResponseEntity<String> response = template.getForEntity(base.toString()+"/kbss/hello", String.class);
 		assertThat(response.getBody(), equalTo(HelloService.GREETING));
 	}
 }

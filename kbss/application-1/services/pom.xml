@@ -8,36 +8,57 @@
 	<packaging>pom</packaging>
 	<name>Sample Application</name>
 
+	<prerequisites>
+		<maven>3.0.0</maven>
+	</prerequisites>
+
 	<!-- Common versions -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<compile.version>1.7</compile.version>
 
-		<!-- Dependency Versions (Please put all versions here, even when not shared, 
-			so there is one place to edit) -->
-		<amazon.version>1.7.1</amazon.version>
-		<argparse4j.version>0.4.2</argparse4j.version>
-		<aspectj.compile>1.7</aspectj.compile>
-		<aspectj.version>1.7.3</aspectj.version>
-		<atmosphere.version>2.2.0</atmosphere.version>
+		<spring.boot.version>1.2.2.RELEASE</spring.boot.version>
+		<spring.version>4.1.5.RELEASE</spring.version>		
+		<apache.shiro.version>1.2.3</apache.shiro.version>
+		<jackson.version>2.3.2</jackson.version>
+		<flyway.version>3.2.1</flyway.version>
+		<mysql.version>5.1.22</mysql.version>
+		<h2.version>1.4.186</h2.version>		
+		<guava.version>18.0</guava.version>		
+		<joda-time.version>2.7</joda-time.version>
+		<joda-time.hibernate.version>1.3</joda-time.hibernate.version>		
 		<commons.lang.version>2.6</commons.lang.version>
 		<common.logging.version>1.1.3</common.logging.version>
 		<commons.beanutils.version>1.7.0</commons.beanutils.version>
 		<commons.codec.version>1.9</commons.codec.version>
 		<commons.io.version>2.4</commons.io.version>
-		<compile.version>1.7</compile.version>
-
+		<slf4j.version>1.7.6</slf4j.version>		
+		
+		<junit.version>4.11</junit.version>
+		<mockito.version>1.9.5</mockito.version>		
+		
+		<db.user>admin</db.user>
+		<db.password>kraken</db.password>
+		<db.host>127.0.0.1</db.host>
+		<db.port>3306</db.port>
+		<db.jdbc.connection>jdbc:mysql://${db.host}</db.jdbc.connection>
+		
+		<!-- Dependency Versions (Please put all versions here, even when not shared, 
+			so there is one place to edit) -->
+		<!-- 
+		<amazon.version>1.7.1</amazon.version>
+		<argparse4j.version>0.4.2</argparse4j.version>
+		<aspectj.compile>1.7</aspectj.compile>
+		<aspectj.version>1.7.3</aspectj.version>
+		<atmosphere.version>2.2.0</atmosphere.version>
 		<google.api.version>v3-rev89-1.19.0</google.api.version>
-		<guava.version>18.0</guava.version>
-
 		<hibernate.version>4.3.6.Final</hibernate.version>
 		<hibernate-commons-annotations.version>4.0.5.Final</hibernate-commons-annotations.version>
 		<hibernate-validator.version>5.1.1.Final</hibernate-validator.version>
-
 		<httpclient.version>4.3.4</httpclient.version>
 		<jackson.version>2.3.2</jackson.version>
 		<javassist.version>3.18.1-GA</javassist.version>
-
 		<javax.activation.version>1.1</javax.activation.version>
 		<javax.el.version>2.2.6</javax.el.version>
 		<javax.persistence.version>2.0.0</javax.persistence.version>
@@ -45,35 +66,8 @@
 		<jaxb.impl.version>2.2.5</jaxb.impl.version>
 		<jaxws.rt.version>2.2.6</jaxws.rt.version>
 		<jersey.version>1.18.1</jersey.version>
-
-		<joda.version>2.3</joda.version>
-		<junit.version>4.11</junit.version>
-
-		<mockito.version>1.9.5</mockito.version>
-		<mysql.version>5.1.22</mysql.version>
-
-		<slf4j.version>1.7.6</slf4j.version>
-		<spymemcached.version>2.11.6</spymemcached.version>
-		
-		<apache.shiro.version>1.2.3</apache.shiro.version>
-
-		<spring.boot.version>1.2.2.RELEASE</spring.boot.version>
-		<spring.version>4.1.5.RELEASE</spring.version>
-		<h2.version>1.4.186</h2.version>
-		<flyway.version>3.2.1</flyway.version>
-		<mysql.version>5.1.22</mysql.version>
-		
-		<db.user>admin</db.user>
-		<db.password>kraken</db.password>
-		<db.host>127.0.0.1</db.host>
-		<db.port>3306</db.port>
-		<db.jdbc.connection>jdbc:mysql://${db.host}</db.jdbc.connection>
-
+		-->
 	</properties>
-
-	<prerequisites>
-		<maven>3.0.0</maven>
-	</prerequisites>
 
 	<scm>
 		<connection>scm:git:git@github.com:kylebober/sample-application.git</connection>
@@ -102,36 +96,42 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
 				<version>${spring.boot.version}</version>
+				<scope>compile</scope>
 			</dependency>
 			
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-thymeleaf</artifactId>
 				<version>${spring.boot.version}</version>
+				<scope>compile</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-jersey</artifactId>
 				<version>${spring.boot.version}</version>
+				<scope>compile</scope>
 			</dependency>
 			
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-hateoas</artifactId>
 				<version>${spring.boot.version}</version>
+				<scope>compile</scope>
 			</dependency>
 
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-tx</artifactId>
-				<version>${spring.version}</version>
+    			<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-starter-data-jpa</artifactId>
+    			<version>${spring.boot.version}</version>
+    			<scope>compile</scope>
 			</dependency>
-
+			
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jdbc</artifactId>
-				<version>${spring.version}</version>
+    			<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-starter-jdbc</artifactId>
+    			<version>${spring.boot.version}</version>
+    			<scope>compile</scope>
 			</dependency>
 
 			<!-- Shiro -->
@@ -139,47 +139,22 @@
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-core</artifactId>
 				<version>${apache.shiro.version}</version>
+				<scope>compile</scope>
 			</dependency>			
 			<dependency>			
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-web</artifactId>
 				<version>${apache.shiro.version}</version>
+				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-spring</artifactId>
 				<version>${apache.shiro.version}</version>
+				<scope>compile</scope>
 			</dependency>
 			
-			<!-- Flyway -->
-			<dependency>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-core</artifactId>
-				<version>${flyway.version}</version>
-			</dependency>
-			
-			<!-- MySQL -->
-        	<dependency>
-            	<groupId>mysql</groupId>
-            	<artifactId>mysql-connector-java</artifactId>
-            	<version>${mysql.version}</version>
-            	<scope>runtime</scope>
-        	</dependency>
-
-			<!-- H2 Database -->
-			<dependency>
-				<groupId>com.h2database</groupId>
-				<artifactId>h2</artifactId>
-				<version>${h2.version}</version>
-			</dependency>
-			
-			<!-- Guava --> 
-			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>${guava.version}</version>
-			</dependency>
-
+			<!-- Jackson -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-annotations</artifactId>
@@ -210,6 +185,55 @@
 				<version>${jackson.version}</version>
 				<scope>compile</scope>
 			</dependency>
+
+			<!-- Flyway -->
+			<dependency>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-core</artifactId>
+				<version>${flyway.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			
+			<!-- MySQL -->
+        	<dependency>
+            	<groupId>mysql</groupId>
+            	<artifactId>mysql-connector-java</artifactId>
+            	<version>${mysql.version}</version>
+            	<scope>runtime</scope>
+        	</dependency>
+
+			<!-- H2 Database -->
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${h2.version}</version>
+			</dependency>
+
+			
+			<!-- Guava --> 
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			
+			<!-- Joda Time -->
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${joda-time.version}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time-hibernate</artifactId>
+				<version>${joda-time.hibernate.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			
+			<!-- Apache Commons -->
 			<dependency>
 				<groupId>commons-codec</groupId>
 				<artifactId>commons-codec</artifactId>
@@ -223,22 +247,35 @@
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
-				<groupId>javax.activation</groupId>
-				<artifactId>activation</artifactId>
-				<version>${javax.activation.version}</version>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons.io.version}</version>
 				<scope>compile</scope>
 			</dependency>
+			
+			<!-- SLF4J Logging -->
 			<dependency>
-				<groupId>joda-time</groupId>
-				<artifactId>joda-time</artifactId>
-				<version>${joda.version}</version>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
 				<scope>compile</scope>
 			</dependency>
+			
+			<!-- Testing Libraries -->
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
 				<scope>test</scope>
+			</dependency>
+			
+			<!-- 
+		
+			<dependency>
+				<groupId>javax.activation</groupId>
+				<artifactId>activation</artifactId>
+				<version>${javax.activation.version}</version>
+				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
@@ -271,22 +308,11 @@
 				<scope>runtime</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
 				<groupId>com.sun.xml.bind</groupId>
 				<artifactId>jaxb-impl</artifactId>
 				<version>${jaxb.impl.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>${commons.io.version}</version>
-				<scope>compile</scope>
-			</dependency>
+			-->
 		</dependencies>
 	</dependencyManagement>
 
