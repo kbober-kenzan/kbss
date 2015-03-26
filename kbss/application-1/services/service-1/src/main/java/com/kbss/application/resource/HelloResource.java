@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import com.kbss.application.service.HelloService;
 
 @Component
-@Path("/hello")
+@Path("/kbss/hello")
 public class HelloResource {
 	
 	@Autowired
